@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  # Backend API service
+  backend:
+    build:
+      context: ./PHIRedactionAPI
+      dockerfile: Dockerfile
+    container_name: phi-redaction-api
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+    volumes:
+      - processed_files:/app/ProcessedFiles
+    networks:
+      - phi-redaction-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Frontend service
+  frontend:
+    build:
+      context: ./phi-redaction-app
+      dockerfile: Dockerfile
+    container_name: phi-redaction-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - phi-redaction-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+# Named volumes for data persistence
+volumes:
+  processed_files:
+    driver: local
+
+# Custom network
+networks:
+  phi-redaction-network:
+    driver: bridge
