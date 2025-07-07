@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PHIRedactionAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6e542ede6cfd667b9f7be23e08cc7b367593d5d6")]
 [assembly: System.Reflection.AssemblyProductAttribute("PHIRedactionAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PHIRedactionAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
