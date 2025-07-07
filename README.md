@@ -172,7 +172,7 @@ PHIRedactionApp/
 ### Frontend (Angular)
 
 - **Angular 15** single-page application
-- **File Upload Component** with drag-and-drop support
+- **File Upload Component**
 - **Processing Status Display** with real-time updates
 - **Download Management** with error handling
 - **Responsive Design** for desktop and mobile

@@ -33,3 +33,4 @@
 /Users/jordandaake/Desktop/source/PHIRedactionApp/PHIRedactionAPI/obj/Debug/net6.0/PHIRedac.35387C94.Up2Date
 /Users/jordandaake/Desktop/source/PHIRedactionApp/PHIRedactionAPI/bin/Debug/net6.0/PHIRedactionAPI.xml
 /Users/jordandaake/Desktop/source/PHIRedactionApp/PHIRedactionAPI/obj/Debug/net6.0/PHIRedactionAPI.xml
+/Users/jordandaake/Desktop/source/PHIRedactionApp/PHIRedactionAPI/obj/Debug/net6.0/PHIRedactionAPI.sourcelink.json
