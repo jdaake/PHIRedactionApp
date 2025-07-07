@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PHIRedactionAPI</name>
+    </assembly>
+    <members>
+        <member name="T:PHIRedactionAPI.Controllers.FilesController">
+            <summary>
+            Controller for handling file upload, PHI redaction, and download operations
+            </summary>
+        </member>
+        <member name="M:PHIRedactionAPI.Controllers.FilesController.ProcessFiles(System.Collections.Generic.List{Microsoft.AspNetCore.Http.IFormFile})">
+            <summary>
+            Process uploaded files to redact PHI information
+            </summary>
+            <param name="files">List of text files containing lab order data</param>
+            <returns>Processing results with download links for sanitized files</returns>
+            <response code="200">Files processed successfully</response>
+            <response code="400">No files uploaded or invalid file format</response>
+            <response code="500">Internal server error</response>
+        </member>
+        <member name="M:PHIRedactionAPI.Controllers.FilesController.DownloadFile(System.String)">
+            <summary>
+            Download a processed file with redacted PHI
+            </summary>
+            <param name="filename">Name of the processed file to download</param>
+            <returns>File content as downloadable attachment</returns>
+            <response code="200">File downloaded successfully</response>
+            <response code="404">File not found</response>
+            <response code="500">Internal server error</response>
+        </member>
+        <member name="M:PHIRedactionAPI.Controllers.FilesController.ListProcessedFiles">
+            <summary>
+            List all processed files available for download
+            </summary>
+            <returns>List of processed file names</returns>
+            <response code="200">Files listed successfully</response>
+            <response code="500">Internal server error</response>
+        </member>
+        <member name="T:PHIRedactionAPI.Models.ProcessingResult">
+            <summary>
+            Result of processing multiple files for PHI redaction
+            </summary>
+        </member>
+        <member name="P:PHIRedactionAPI.Models.ProcessingResult.TotalFiles">
+            <summary>
+            Total number of files submitted for processing
+            </summary>
+        </member>
+        <member name="P:PHIRedactionAPI.Models.ProcessingResult.SuccessfulFiles">
+            <summary>
+            Number of files successfully processed
+            </summary>
+        </member>
+        <member name="P:PHIRedactionAPI.Models.ProcessingResult.Results">
+            <summary>
+            Detailed results for each file processed
+            </summary>
+        </member>
+        <member name="T:PHIRedactionAPI.Models.FileProcessingResult">
+            <summary>
+            Result of processing a single file for PHI redaction
+            </summary>
+        </member>
+        <member name="P:PHIRedactionAPI.Models.FileProcessingResult.FileName">
+            <summary>
+            Original filename of the uploaded file
+            </summary>
+        </member>
+        <member name="P:PHIRedactionAPI.Models.FileProcessingResult.ProcessedFileName">
+            <summary>
+            Filename of the processed file with redacted PHI
+            </summary>
+        </member>
+        <member name="P:PHIRedactionAPI.Models.FileProcessingResult.Success">
+            <summary>
+            Whether the file was successfully processed
+            </summary>
+        </member>
+        <member name="P:PHIRedactionAPI.Models.FileProcessingResult.Message">
+            <summary>
+            Status message describing the processing result
+            </summary>
+        </member>
+        <member name="P:PHIRedactionAPI.Models.FileProcessingResult.DownloadUrl">
+            <summary>
+            URL to download the processed file (if successful)
+            </summary>
+        </member>
+    </members>
+</doc>
