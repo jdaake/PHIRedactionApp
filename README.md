@@ -2,6 +2,19 @@
 
 A secure application that processes lab order documents to identify and redact Protected Health Information (PHI). Built with Angular frontend and .NET Core backend.
 
+**Repository**: <https://github.com/jdaake/PHIRedactionApp>
+
+## Getting Started
+
+### Clone the Repository
+
+First, clone this repository to your local machine:
+
+```bash
+git clone https://github.com/jdaake/PHIRedactionApp.git
+cd PHIRedactionApp
+```
+
 ## Features
 
 - **File Upload Interface**: Select multiple lab order text files for processing
@@ -328,4 +341,3 @@ Given additional time, potential improvements include:
 - **Backend**: .NET 6, ASP.NET Core, C#
 - **Containerization**: Docker, Docker Compose
 - **Development Tools**: Visual Studio Code, npm, dotnet CLI
-- **Testing**: Built-in Angular testing, .NET unit testing framework
