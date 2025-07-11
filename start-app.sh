@@ -183,7 +183,7 @@ if [ "$STARTUP_METHOD" = "docker" ]; then
     
     # Clean up any existing containers
     print_info "Cleaning up existing containers..."
-    docker-compose down 2>/dev/null || true
+    docker compose down 2>/dev/null || true
     
     # Kill any processes on our ports
     kill_port 4200
@@ -191,7 +191,7 @@ if [ "$STARTUP_METHOD" = "docker" ]; then
     
     # Start with Docker Compose
     print_info "Building and starting containers..."
-    if docker-compose up --build -d; then
+    if docker compose up --build -d; then
         print_status "Docker containers starting..."
         
         # Wait for services
@@ -211,7 +211,7 @@ if [ "$STARTUP_METHOD" = "docker" ]; then
         while true; do
             sleep 5
             # Check if containers are still running
-            if ! docker-compose ps | grep -q "Up"; then
+            if ! docker compose ps | grep -q "Up"; then
                 print_error "Containers stopped unexpectedly"
                 break
             fi

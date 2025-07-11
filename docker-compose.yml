@@ -1,5 +1,5 @@
-version: '3.8'
-
+# docker-compose.yml for PHIRedactionApp
+# This file defines the services, networks, and volumes for the PHI Redaction application.
 services:
   # Backend API service
   backend:
@@ -8,7 +8,7 @@ services:
       dockerfile: Dockerfile
     container_name: phi-redaction-api
     ports:
-      - "5001:80"
+      - '5001:80'
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:80
@@ -18,7 +18,7 @@ services:
       - phi-redaction-network
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
+      test: ['CMD', 'curl', '-f', 'http://localhost:80/health']
       interval: 30s
       timeout: 10s
       retries: 3
@@ -31,14 +31,14 @@ services:
       dockerfile: Dockerfile
     container_name: phi-redaction-frontend
     ports:
-      - "4200:80"
+      - '4200:80'
     depends_on:
       - backend
     networks:
       - phi-redaction-network
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
+      test: ['CMD', 'curl', '-f', 'http://localhost:80/health']
       interval: 30s
       timeout: 10s
       retries: 3
